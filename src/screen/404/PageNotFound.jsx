@@ -3,9 +3,9 @@ import { NavLink } from "react-router-dom"
 
 const PageNotFound = () => {
   return (
-    <div>
-      <h1>Page Tidak Ditemukan !</h1>
-        <NavLink to={"/"}> Kembali </NavLink>
+    <div className="flex flex-col justify-center items-center h-screen">
+        <h1>Page Tidak Ditemukan !</h1>
+        <NavLink to={"/"} className="text-blue-500 hover:text-blue-700">Kembali</NavLink>
     </div>
   )
 }

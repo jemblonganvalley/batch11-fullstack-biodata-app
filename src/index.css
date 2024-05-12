@@ -1,3 +1,50 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+
+    .container-bg {
+        @apply w-screen h-[100dvh] flex justify-center 
+        items-center flex-col relative bg-[url("https://images.pexels.com/photos/1939485/pexels-photo-1939485.jpeg?auto=compress&cs=tinysrgb&w=400")] bg-no-repeat bg-cover overflow-y-hidden
+    }
+
+    .home-btn {
+        @apply h-12 bg-slate-50 rounded-md w-[70%]
+        flex justify-center items-center absolute bottom-6 hover:bg-slate-100 z-10 md:w-48
+    }
+
+    .home-base-bg {
+        @apply bg-yellow-500/70 bg-blend-multiply absolute w-full h-full top-0 left-0 z-[0]
+    }
+
+    .column-form {
+        @apply w-full flex flex-col gap-4
+    }
+
+    .form-control {
+        @apply w-full flex flex-col gap-2
+    }
+
+    .form-control p {
+        @apply font-bold
+    }
+
+    .form-input {
+        @apply w-full h-12 px-3 rounded-md border border-gray-300
+    }
+
+    .form-textarea {
+        @apply w-full h-52 p-3 border border-gray-300
+    }
+
+    .form-button {
+        @apply h-12 bg-orange-500 text-white rounded-md
+    }
+
+    .content-container {
+        @apply w-full min-h-[100dvh] flex flex-col p-8 gap-6
+    }
+
+}
+

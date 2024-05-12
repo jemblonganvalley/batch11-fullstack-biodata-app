@@ -3,14 +3,19 @@ import { NavLink } from "react-router-dom"
 
 const HomePage = () => {
   return (
-    <div>
-      <h1>Home Page</h1>
+    <div className={`container-bg`}>
 
-      <nav>
-        <NavLink to={"/"}> Home </NavLink>
-        <NavLink to={"/biodata"}> Biodata </NavLink>
-        <NavLink to={"/finish"}> Finish </NavLink>
-      </nav>
+      <div className='text-center z-10'>
+        <h1 className={`font-thin text-5xl select-none`}>APLIKASI</h1>
+        <h1 className={`font-bold text-5xl select-none`}>BIODATA</h1>
+      </div>
+
+      <NavLink to={"/biodata"} className={`home-btn`} role='button'>
+          Isi Biodata
+      </NavLink>
+
+      <div className={`home-base-bg`}></div>
+
     </div>
   )
 }
