@@ -6,6 +6,7 @@ import FinishPage from './screen/finish/FinishPage'
 import PageNotFound from './screen/404/PageNotFound'
 import DetailBiodata from './screen/biodata/DetailBiodata'
 import DetailUser from './screen/biodata/DetailUser'
+import ListAll from './screen/biodata/ListAll'
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       <Route path='finish' element={ <FinishPage /> } />
       <Route path='*' element={ <PageNotFound /> } />
       <Route path='biodata/detail/:username/:email/:phone' element={ <DetailBiodata /> } /> 
+      <Route path='biodata/all' element={ <ListAll /> } />
       <Route path='user' element={ <DetailUser /> } />
     </Routes>
   )

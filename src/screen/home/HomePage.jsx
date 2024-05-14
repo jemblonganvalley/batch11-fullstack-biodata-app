@@ -14,6 +14,10 @@ const HomePage = () => {
           Isi Biodata
       </NavLink>
 
+      <NavLink to={"/biodata/all"} className={`home-btn mb-14`} role='button'>
+          List Biodata
+      </NavLink>
+
       <div className={`home-base-bg`}></div>
 
     </div>

@@ -1,7 +1,58 @@
 import React from 'react'
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
+import db from '../../firebase'
+import { doc, setDoc } from 'firebase/firestore'
 
 const BiodataPage = () => {
+
+    const navigate = useNavigate()
+
+    function handleSubmit( event ){
+        // stop form untuk refresh page
+        event.preventDefault()
+
+        // tangkap value dari input element
+        const fullname = event.target.fullname.value
+        const bod = event.target.bod.value
+        const pob = event.target.pob.value
+        const address = event.target.address.value
+        const email = event.target.email.value
+        const phone = event.target.phone.value
+
+        // tampilkan ke console browser
+        console.info({
+            fullname, bod, pob, address, email, phone
+        })
+
+        // confirmasi ke user
+        const conf = window.confirm(`
+fullname    : ${fullname}
+bod         : ${bod}
+pob         : ${pob}
+address     : ${address}
+email       : ${email}
+phone       : ${phone}
+        `)
+
+        if( !conf ) return
+
+        // store data ke firebase
+        storeBiodata({
+            fullname, bod, pob, address, email, phone
+        })
+        .then(res => console.info("data berhasil di masukan"))
+
+        // kembalikan ke page utama
+        navigate("/")
+    }
+
+    async function storeBiodata( data ) {
+        const docRef = doc(db, "/biodata/" + data.email)
+        const store = await setDoc(docRef, data)
+        return store
+    }
+
+
     return (
         <div className={`content-container`}>
 
@@ -10,7 +61,7 @@ const BiodataPage = () => {
                 <h1 className={`font-bold text-5xl select-none`}>BIODATA</h1>
             </div>
 
-            <form action='/user' className={`column-form`}>
+            <form onSubmit={handleSubmit} className={`column-form`}>
 
                 <div className={`form-control`}>
                     <label htmlFor="fullname"> Nama Lengkap </label>
